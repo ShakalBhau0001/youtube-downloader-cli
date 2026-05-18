@@ -1,1 +1,1 @@
-# youtube-downloader-fastapi
+# youtube-downloader-cli-fastapi
