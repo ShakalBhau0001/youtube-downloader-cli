@@ -1,1 +1,4 @@
-
+rich
+yt_dlp
+yt-dlp
+argparse
