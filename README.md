@@ -100,6 +100,7 @@ youtube-downloader-cli/
 ├── cli/
 │   ├── __init__.py
 │   ├── commands.py
+│   ├── display.py
 │   └── interactive.py
 │
 ├── main.py
