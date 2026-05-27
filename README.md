@@ -22,6 +22,8 @@ If you prefer a clean, beginner-friendly graphical interface instead of terminal
 
 > **🔗 GUI Repository: [youtube-downloader-gui](https://github.com/ShakalBhau0001/youtube-downloader-gui)**
 
+> **Work in progess.....**
+
 ---
 
 ## ✨ Key Philosophy
@@ -216,7 +218,7 @@ python main.py
 You will be prompted to enter:
 - YouTube URL
 - Format choice (`video` or `audio`)
-- Output directory (optional)
+- Output directory
 
 ---
 
@@ -233,8 +235,8 @@ python main.py --help
 - `--format` accepts `video` or `audio` only
 - If no URL is provided via flags, interactive mode launches automatically
 - `Ctrl+C` exits cleanly at any point
-- Output files are named automatically from the video title
-- Short and long flags both work identically
+- Output files are named automatically from the `video title`
+- `Short` and `long flags` both work identically
 
 ---
 
@@ -253,17 +255,17 @@ _No unnecessary or hidden dependencies_
 
 ## ⚠️ Disclaimer
 
-This tool is intended for **personal, educational, and research use only**.
-Downloading copyrighted YouTube content without permission may violate YouTube's Terms of Service.
-The developer is **not responsible** for any misuse of this tool.
-Always respect content creators and platform policies.
+> This tool is intended for **personal, educational, and research use only**.
+> **_Downloading copyrighted YouTube content without permission may violate YouTube's Terms of Service._**
+> The developer is **not responsible** for any misuse of this tool.
+> **Always respect content creators and platform policies.**
 
 ---
 
 ## 🛣️ Roadmap
 
 - Playlist batch download support
-- Format quality selector (720p, 1080p, etc.)
+- Format quality selector (144p, 240p, 360p, 480p, 720p, 1080p, etc.)
 - Download history log
 - PyInstaller standalone binary
 - Linux & macOS packaging
