@@ -22,7 +22,6 @@ If you prefer a clean, beginner-friendly graphical interface instead of terminal
 
 > **🔗 GUI Repository: [youtube-downloader-gui](https://github.com/ShakalBhau0001/youtube-downloader-gui)**
 
-> **Work in progess.....**
 
 ---
 
@@ -142,6 +141,79 @@ cd youtube-downloader-cli
 pip install -r requirements.txt
 ```
 
+**requirements.txt**
+
+```txt
+customtkinter
+yt-dlp
+```
+
+---
+
+### 3️⃣ Install FFmpeg
+
+FFmpeg is required for:
+
+* MP3 audio extraction
+* Audio conversion and post-processing
+* Bitrate selection support
+
+Without FFmpeg, video downloads will work normally, but audio downloads and MP3 conversion may fail.
+
+---
+
+#### Windows
+
+1️⃣ Download FFmpeg from:   **[FFmpeg](https://ffmpeg.org/download.html)**
+
+2️⃣ Extract the downloaded archive.
+
+3️⃣ Locate the `bin` folder.
+
+4️⃣ Add the `bin` folder to your system `PATH`.
+
+5️⃣ Verify installation:
+
+```bash
+ffmpeg -version
+```
+
+**OR**
+
+> **Use Following Command Into Terminal (Run As Administrator) :**
+
+```bash
+winget install Gyan.FFmpeg
+```
+
+---
+
+#### Linux
+
+```bash
+sudo apt install ffmpeg
+```
+
+---
+
+#### macOS
+
+```bash
+brew install ffmpeg
+```
+
+---
+
+### Verify Installation
+
+```bash
+ffmpeg -version
+```
+
+If FFmpeg is installed correctly, version information will be displayed.
+
+---
+
 ### 3️⃣ Run Help Command
 
 ```bash
@@ -155,6 +227,7 @@ This will display all available flags and usage instructions.
 ## 🧪 CLI Usage Examples
 
 > **Syntax**
+> 
 > `python main.py [OPTIONS]`
 
 ---
@@ -269,6 +342,12 @@ _No unnecessary or hidden dependencies_
 - Download history log
 - PyInstaller standalone binary
 - Linux & macOS packaging
+
+---
+
+## 📸 Preview
+
+![Rich CLI Preview](assets/screenshot.png)
 
 ---
 
