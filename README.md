@@ -64,7 +64,7 @@ Download only the audio track from any YouTube video.
 
 * Extracts audio via yt-dlp post-processing
 * Saves as `.mp3`
-* No FFmpeg dependency required for basic use
+* Video downloads work without FFmpeg, but MP3 conversion requires FFmpeg.
 * Clean filename from video title
 
 **Use-case**
@@ -94,6 +94,7 @@ Launch the tool with no arguments to enter a guided interactive session.
 ```bash
 youtube-downloader-cli/
 │
+├── assets/
 ├── core/
 │   ├── __init__.py
 │   └── downloader.py
@@ -123,6 +124,7 @@ youtube-downloader-cli/
 | Terminal UI      | Rich (progress, styling)  |
 | Interactive Mode | Built-in prompt flow      |
 | Language         | Python 3.12.x             |
+| Media Processing | FFmpeg                    |
 
 ---
 
@@ -144,9 +146,11 @@ pip install -r requirements.txt
 **requirements.txt**
 
 ```txt
-customtkinter
+rich
 yt-dlp
 ```
+
+_No unnecessary or hidden dependencies_
 
 ---
 
@@ -228,7 +232,7 @@ This will display all available flags and usage instructions.
 
 > **Syntax**
 > 
-> `python main.py [OPTIONS]`
+> `python main.py "<youtube_url>" [OPTIONS]`
 
 ---
 
@@ -237,13 +241,49 @@ This will display all available flags and usage instructions.
 ### Download (short flags)
 
 ```bash
-python main.py -u "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -f video
+python main.py "<youtube_url>" -m video
 ```
 
 ### Download (long flags)
 
 ```bash
-python main.py --url "https://www.youtube.com/watch?v=dQw4w9WgXcQ" --format video
+python main.py "<youtube_url>" --mode video
+```
+
+### Download in 1080p
+
+```bash
+python main.py "<youtube_url>" -m video -q 1080p
+```
+
+### Download in 720p
+
+```bash
+python main.py "<youtube_url>" -m video -q 720p
+```
+
+### Download in 480p
+
+```bash
+python main.py "<youtube_url>" -m video -q 480p
+```
+
+### Download in 360p
+
+```bash
+python main.py "<youtube_url>" -m video -q 360p
+```
+
+### Download in 240p
+
+```bash
+python main.py "<youtube_url>" -m video -q 240p
+```
+
+### Download in 144p
+
+```bash
+python main.py "<youtube_url>" -m video -q 144p
 ```
 
 ---
@@ -253,13 +293,31 @@ python main.py --url "https://www.youtube.com/watch?v=dQw4w9WgXcQ" --format vide
 ### Download (short flags)
 
 ```bash
-python main.py -u "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -f audio
+python main.py "<youtube_url>" -m audio
 ```
 
 ### Download (long flags)
 
 ```bash
-python main.py --url "https://www.youtube.com/watch?v=dQw4w9WgXcQ" --format audio
+python main.py "<youtube_url>" --mode audio
+```
+
+### Download 320kbps Audio
+
+```bash
+python main.py "<youtube_url>" -m audio -b 320
+```
+
+### Download 192kbps Audio
+
+```bash
+python main.py "<youtube_url>" -m audio -b 192
+```
+
+### Download 128kbps Audio
+
+```bash
+python main.py "<youtube_url>" -m audio -b 128
 ```
 
 ---
@@ -269,14 +327,40 @@ python main.py --url "https://www.youtube.com/watch?v=dQw4w9WgXcQ" --format audi
 ### Specify output path (short flags)
 
 ```bash
-python main.py -u "https://youtu.be/dQw4w9WgXcQ" -f video -o ./downloads
+python main.py "<youtube_url>" -m video -o ./downloads
 ```
 
 ### Specify output path (long flags)
 
 ```bash
-python main.py --url "https://youtu.be/dQw4w9WgXcQ" --format video --output ./downloads
+python main.py "<youtube_url>" --mode video --output ./downloads
 ```
+
+## ℹ️ Fetch Video Information
+
+Display video information without downloading.
+
+### Short Flag
+
+```bash
+python main.py "<youtube_url>" -i
+```
+
+### Long Flag
+
+```bash
+python main.py "<youtube_url>" --info
+```
+
+---
+
+## 🆘 Help Command
+
+```bash
+python main.py --help
+```
+
+> Displays all available command-line options and usage instructions
 
 ---
 
@@ -295,34 +379,13 @@ You will be prompted to enter:
 
 ---
 
-## 🆘 Help Command
-
-```bash
-python main.py --help
-```
-
----
-
 ## ⚠️ Important Notes
 
-- `--format` accepts `video` or `audio` only
-- If no URL is provided via flags, interactive mode launches automatically
+- `--mode` accepts `video` or `audio` only
+- If no URL is provided, interactive mode launches automatically.
 - `Ctrl+C` exits cleanly at any point
 - Output files are named automatically from the `video title`
 - `Short` and `long flags` both work identically
-
----
-
-## 📦 requirements.txt
-
-```txt
-rich
-yt-dlp
-yt_dlp
-argparse
-```
-
-_No unnecessary or hidden dependencies_
 
 ---
 
@@ -338,7 +401,6 @@ _No unnecessary or hidden dependencies_
 ## 🛣️ Roadmap
 
 - Playlist batch download support
-- Format quality selector (144p, 240p, 360p, 480p, 720p, 1080p, etc.)
 - Download history log
 - PyInstaller standalone binary
 - Linux & macOS packaging
@@ -347,7 +409,14 @@ _No unnecessary or hidden dependencies_
 
 ## 📸 Preview
 
-![Rich CLI Preview](assets/screenshot.png)
+### 1. Audio Download
+
+![Rich CLI Preview](assets/YT-1.png)
+
+### 2. Video Download
+
+![Rich CLI Preview](assets/YT-2.png)
+![Rich CLI Preview](assets/YT-2.1.png)
 
 ---
 
